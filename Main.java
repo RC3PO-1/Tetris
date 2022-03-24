@@ -1,11 +1,9 @@
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 class Main {
   public static void main(String[] args) {
-      JFrame window = new JFrame();
-  GamePanel gamePanel = new GamePanel();
+    JFrame window = new JFrame();
+    GamePanel gamePanel = new GamePanel();
   
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window.setResizable(false);

@@ -27,7 +27,7 @@ class Tile{
     this.color = input;
   }
 
-   /**
+  /**
   *gets the blank state of the tile
   *@return boolean is the tile blank
   */
