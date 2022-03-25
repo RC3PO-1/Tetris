@@ -1,3 +1,4 @@
+package Tetris;
 class pieceConst{
   //I,O,S,Z,T,L,J
   

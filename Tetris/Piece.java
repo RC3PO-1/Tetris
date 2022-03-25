@@ -1,3 +1,4 @@
+package Tetris;
 class Piece {
   int x; //position is zero indexed off the top left corner
   int y;

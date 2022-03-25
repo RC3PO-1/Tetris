@@ -1,3 +1,4 @@
+package Tetris;
 import javax.swing.JPanel;
 import java.awt.*;
 
@@ -59,9 +60,12 @@ public class GamePanel extends JPanel implements Runnable {
 
     Graphics2D g2 = (Graphics2D) g;
 
-    g2.fillRect(100, 100, tileSize, tileSize);
+    
 
     g2.dispose();
   }
+
+
+
 
 }

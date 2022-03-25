@@ -1,3 +1,4 @@
+package Tetris;
 class Tile{
   boolean blank;
   String color;

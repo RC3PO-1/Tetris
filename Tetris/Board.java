@@ -1,3 +1,4 @@
+package Tetris;
 class board {
   Tile boardArray[][] = new Tile[10][24];
   Piece currentPiece;
