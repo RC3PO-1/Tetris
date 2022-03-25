@@ -1,4 +1,5 @@
 package Tetris;
+
 class board {
   Tile boardArray[][] = new Tile[10][24];
   Piece currentPiece;
@@ -6,10 +7,14 @@ class board {
   public board() {
   }
 
+  public Tile[][] getBoard() {
+    return boardArray;
+  }
+
   public void clearBoard() {
     for (int i = 0; i < boardArray.length; i++) {
       for (int j = 0; j < boardArray[i].length; j++) {
-        boardArray[i][j] = new Tile("BLANK", true);
+        boardArray[i][j] = new Tile("X", true);
       }
     }
   }
@@ -70,26 +75,6 @@ class board {
 
   public int removeLines() {
     return 0;
-  }
-
-  public void shiftLeft() {
-
-  }
-
-  public void shiftRight() {
-
-  }
-
-  public void spin() {
-
-  }
-
-  public void hardDrop() {
-
-  }
-
-  public void softDrop() {
-
   }
 
 }

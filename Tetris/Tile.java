@@ -27,7 +27,7 @@ class Tile {
   public Tile(String color, boolean blank) {
     this.color = color;
     this.blank = blank;
-    
+
     try {
       I_G = ImageIO.read(new File("/Resources/basicTile.png"));
       I_C = ImageIO.read(new File("/Resources/basicTile.png"));
@@ -36,7 +36,7 @@ class Tile {
       I_Y = ImageIO.read(new File("/Resources/basicTile.png"));
       I_O = ImageIO.read(new File("/Resources/basicTile.png"));
       I_M = ImageIO.read(new File("/Resources/basicTile.png"));
-      I_X = ImageIO.read(new File("/Resources/basicTile.png"));
+      I_X = ImageIO.read(new File("/Resources/blankTile.png"));
     } catch (IOException e) {
       e.printStackTrace();
     }
