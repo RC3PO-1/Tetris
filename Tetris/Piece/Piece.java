@@ -1,5 +1,6 @@
-package Tetris;
-class Piece {
+package Tetris.Piece;
+
+public class Piece {
   int x; //position is zero indexed off the top left corner
   int y;
   int rotation  = 0;
@@ -46,7 +47,7 @@ class Piece {
     this.type = input.toUpperCase();
   }
 
-  public Tile[][][] getShape() {
+  public PieceTile[][][] getShape() {
     switch (type) {
       case "I":
         return pieceConst.pI;

@@ -1,6 +1,11 @@
 package Tetris;
 
+import Tetris.Piece.Piece;
+
 class Player {
+    Piece nextPiece;
+    Piece currentPiece;
+
     public Player() {
         init();
     }

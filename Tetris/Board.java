@@ -1,26 +1,29 @@
 package Tetris;
 
+import Tetris.Piece.Piece;
+import Tetris.Piece.PieceTile;
+
 class board {
-  Tile boardArray[][] = new Tile[10][24];
-  Piece currentPiece;
+  private PieceTile boardArray[][] = new PieceTile[10][24];
+  private Piece currentPiece;
 
   public board() {
   }
 
-  public Tile[][] getBoard() {
+  public PieceTile[][] getBoard() {
     return boardArray;
   }
 
   public void clearBoard() {
     for (int i = 0; i < boardArray.length; i++) {
       for (int j = 0; j < boardArray[i].length; j++) {
-        boardArray[i][j] = new Tile("X", true);
+        boardArray[i][j] = new PieceTile("X", true);
       }
     }
   }
 
   public void advanceFall() {
-    Tile[][][] tmp = currentPiece.getShape();
+    PieceTile[][][] tmp = currentPiece.getShape();
     boolean goodMove = true;
 
     for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
@@ -43,7 +46,7 @@ class board {
   }
 
   public void addPieceToBoard() {
-    Tile[][][] tmp = currentPiece.getShape();
+    PieceTile[][][] tmp = currentPiece.getShape();
     boolean onBottom = false;
 
     for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {

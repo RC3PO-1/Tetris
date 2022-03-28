@@ -1,4 +1,4 @@
-package Tetris;
+package Tetris.Piece;
 
 import java.awt.Image;
 import java.io.File;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-class Tile {
+public class PieceTile {
   boolean blank;
   String color;
 
@@ -24,7 +24,7 @@ class Tile {
    * 
    * @param color the clolr the tile will be
    */
-  public Tile(String color, boolean blank) {
+  public PieceTile(String color, boolean blank) {
     this.color = color;
     this.blank = blank;
 

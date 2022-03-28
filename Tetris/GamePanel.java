@@ -3,21 +3,12 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-  final int origionalTileSize = 16;
-  final int scale = 2;
 
-  final int tileSize = origionalTileSize * scale;
-  final int maxScreenCol = 10;
-  final int maxScreenRow = 24;
-  final int screenWidth = tileSize * maxScreenCol;
-  final int screenHeight = tileSize * maxScreenRow;
-
-  final int FPS = 60;
 
   Thread gameThread;
 
   public GamePanel() {
-    this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+    this.setPreferredSize(new Dimension(Constants.screenWidth, Constants.screenHeight));
     this.setBackground(Color.GRAY);
     this.setDoubleBuffered(true);
   }
@@ -29,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   @Override
   public void run() {
-    double cycleTime = 1000000000 / FPS;
+    double cycleTime = 1000000000 / Constants.FPS;
     double nextDraw = System.nanoTime() + cycleTime;
 
     while (gameThread != null) {
