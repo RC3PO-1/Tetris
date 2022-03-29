@@ -19,7 +19,7 @@ class Board {
   public void clearBoard() {
     for (int i = 0; i < boardArray.length; i++) {
       for (int j = 0; j < boardArray[i].length; j++) {
-        boardArray[i][j] = new Block("B", false);
+        boardArray[i][j] = new Block("R", false);
       }
     }
   }

@@ -50,8 +50,8 @@ public class GamePanel extends JPanel implements Runnable {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
-
-    new Board().draw(0, 0, g2);
+    new BkgManager().draw(g2);
+    new Board().draw(1, 0, g2);
 
     g2.dispose();
   }
