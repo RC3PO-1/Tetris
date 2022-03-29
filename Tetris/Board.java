@@ -5,7 +5,7 @@ import Tetris.Piece.Block;
 import java.awt.*;
 
 class Board {
-  private Block boardArray[][] = new Block[10][24];
+  private Block boardArray[][] = new Block[Constants.boardCol][Constants.boardRow];
   private Piece currentPiece;
 
   public Board() {
@@ -80,8 +80,18 @@ class Board {
   public int removeLines() {
     return 0;
   }
-
-  public void draw(Graphics2D g2){
-        
+  
+  /**
+   * Draws board on screen
+   * @param x X offset for board from top left corner
+   * @param y Y offset for board from top left corner
+   * @param g2
+   */
+  public void draw(int x, int y, Graphics2D g2){
+    for(int i = x; i <= Constants.boardCol; i++){
+      for(int j = y; j <= Constants.boardRow; j++){
+          new Tile().draw("B", Constants.tileSize*i, Constants.tileSize*j, g2);
+      }
+    }
   }
 }
