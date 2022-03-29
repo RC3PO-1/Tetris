@@ -5,6 +5,7 @@ import Tetris.Piece.Piece;
 class Player {
     Piece nextPiece;
     Piece currentPiece;
+    Board pBoard;
 
     int score;
 
@@ -12,14 +13,21 @@ class Player {
         init();
     }
 
-    public void init(){
+    public void init() {
 
     }
 
-    public void Periodic(){
+    public void Periodic() {
 
     }
 
+    public Board getBoard(){
+        return pBoard;
+    }
+
+    // ========================================================================
+    // Controls
+    // ========================================================================
     public void shiftLeft() {
 
     }

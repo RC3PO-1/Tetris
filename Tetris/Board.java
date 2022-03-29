@@ -4,11 +4,11 @@ import Tetris.Piece.Piece;
 import Tetris.Piece.Block;
 import java.awt.*;
 
-class board {
+class Board {
   private Block boardArray[][] = new Block[10][24];
   private Piece currentPiece;
 
-  public board() {
+  public Board() {
   }
 
   public Block[][] getBoard() {
