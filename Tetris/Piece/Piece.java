@@ -1,6 +1,4 @@
 package Tetris.Piece;
-import Tetris.Constants;
-import Tetris.Piece.pieceConst;
 
 public class Piece {
   int x; //position is zero indexed off the top left corner

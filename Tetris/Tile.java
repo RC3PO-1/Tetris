@@ -1,13 +1,11 @@
 package Tetris;
 
 import java.awt.Image;
-import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 import java.awt.*;
 import javax.imageio.ImageIO;
 
-import Tetris.Constants;
 
 public class Tile {
 
@@ -22,14 +20,14 @@ public class Tile {
 
     public Tile() {
         try {
-            I_G = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_C = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_B = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_R = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_Y = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_O = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_M = ImageIO.read(new File("/Resources/basicTile.png"));
-            I_X = ImageIO.read(new File("/Resources/blankTile.png"));
+            I_G = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_C = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_B = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_R = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_Y = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_O = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_M = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_X = ImageIO.read(new File("Tetris/Resources/blankTile.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

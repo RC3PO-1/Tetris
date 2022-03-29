@@ -1,5 +1,8 @@
 package Tetris;
 import javax.swing.JPanel;
+
+import Tetris.Background.BkgManager;
+
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -9,7 +12,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   public GamePanel() {
     this.setPreferredSize(new Dimension(Constants.screenWidth, Constants.screenHeight));
-    this.setBackground(Color.GRAY);
+    // this.setBackground(Color.GRAY);
     this.setDoubleBuffered(true);
   }
 
@@ -26,15 +29,13 @@ public class GamePanel extends JPanel implements Runnable {
     while (gameThread != null) {
       update();
       repaint();
+
       try {
         double toNextDraw = (nextDraw - System.nanoTime()) / 1000000;
-
         if (toNextDraw < 0) {
           toNextDraw = 0;
         }
-
         nextDraw += cycleTime;
-
         Thread.sleep((long) toNextDraw);
       } catch (InterruptedException e) {
         e.printStackTrace();
@@ -50,7 +51,7 @@ public class GamePanel extends JPanel implements Runnable {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
 
-
+    new BkgManager().draw(g2);
 
     g2.dispose();
   }
