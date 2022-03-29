@@ -88,8 +88,8 @@ class Board {
    * @param g2
    */
   public void draw(int x, int y, Graphics2D g2){
-    for(int i = x; i <= Constants.boardCol; i++){
-      for(int j = y; j <= Constants.boardRow; j++){
+    for(int i = x; i < Constants.boardCol+x; i++){
+      for(int j = y; j < Constants.boardRow+y; j++){
           new Tile().draw("B", Constants.tileSize*i, Constants.tileSize*j, g2);
       }
     }
