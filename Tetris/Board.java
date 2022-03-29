@@ -9,6 +9,7 @@ class Board {
   private Piece currentPiece;
 
   public Board() {
+    clearBoard();
   }
 
   public Block[][] getBoard() {
@@ -18,7 +19,7 @@ class Board {
   public void clearBoard() {
     for (int i = 0; i < boardArray.length; i++) {
       for (int j = 0; j < boardArray[i].length; j++) {
-        boardArray[i][j] = new Block("X", true);
+        boardArray[i][j] = new Block("B", false);
       }
     }
   }
@@ -90,7 +91,7 @@ class Board {
   public void draw(int x, int y, Graphics2D g2){
     for(int i = x; i < Constants.boardCol+x; i++){
       for(int j = y; j < Constants.boardRow+y; j++){
-          new Tile().draw("B", Constants.tileSize*i, Constants.tileSize*j, g2);
+        boardArray[(i - x)][(j - y)].draw(boardArray[(i - x)][(j - y)].getColor(), Constants.tileSize*i, Constants.tileSize*j, g2);
       }
     }
   }

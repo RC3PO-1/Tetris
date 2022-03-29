@@ -1,6 +1,8 @@
 package Tetris.Piece;
 
 
+import java.awt.Graphics2D;
+
 import Tetris.Tile;
 
 public class Block extends Tile{
@@ -52,6 +54,13 @@ public class Block extends Tile{
    */
   public void setBlank(boolean input) {
     this.blank = input;
+  }
+
+  @Override
+  public void draw(String color, int x, int y, Graphics2D g2) {
+    if(!this.blank){
+      super.draw(color, x, y, g2);
+    }
   }
 
 }
