@@ -1,29 +1,30 @@
 package Tetris;
 
 import Tetris.Piece.Piece;
-import Tetris.Piece.PieceTile;
+import Tetris.Piece.Block;
+import java.awt.*;
 
 class board {
-  private PieceTile boardArray[][] = new PieceTile[10][24];
+  private Block boardArray[][] = new Block[10][24];
   private Piece currentPiece;
 
   public board() {
   }
 
-  public PieceTile[][] getBoard() {
+  public Block[][] getBoard() {
     return boardArray;
   }
 
   public void clearBoard() {
     for (int i = 0; i < boardArray.length; i++) {
       for (int j = 0; j < boardArray[i].length; j++) {
-        boardArray[i][j] = new PieceTile("X", true);
+        boardArray[i][j] = new Block("X", true);
       }
     }
   }
 
   public void advanceFall() {
-    PieceTile[][][] tmp = currentPiece.getShape();
+    Block[][][] tmp = currentPiece.getShape();
     boolean goodMove = true;
 
     for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
@@ -46,7 +47,7 @@ class board {
   }
 
   public void addPieceToBoard() {
-    PieceTile[][][] tmp = currentPiece.getShape();
+    Block[][][] tmp = currentPiece.getShape();
     boolean onBottom = false;
 
     for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
@@ -80,4 +81,7 @@ class board {
     return 0;
   }
 
+  public void draw(Graphics2D g2){
+        
+  }
 }

@@ -6,6 +6,8 @@ class Player {
     Piece nextPiece;
     Piece currentPiece;
 
+    int score;
+
     public Player() {
         init();
     }

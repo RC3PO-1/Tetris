@@ -3,16 +3,16 @@ package Tetris.Piece;
 class pieceConst{
   //I,O,S,Z,T,L,J
   
-  static final PieceTile G = new PieceTile("GREEN", false);
-  static final PieceTile C = new PieceTile("CYAN", false);
-  static final PieceTile B = new PieceTile("BLUE", false);
-  static final PieceTile R = new PieceTile("RED", false);
-  static final PieceTile Y = new PieceTile("YELLOW", false);
-  static final PieceTile O = new PieceTile("ORANGE", false);
-  static final PieceTile M = new PieceTile("ORANGE", false);
-  static final PieceTile X = new PieceTile("BLANK", true);
+  static final Block G = new Block("GREEN", false);
+  static final Block C = new Block("CYAN", false);
+  static final Block B = new Block("BLUE", false);
+  static final Block R = new Block("RED", false);
+  static final Block Y = new Block("YELLOW", false);
+  static final Block O = new Block("ORANGE", false);
+  static final Block M = new Block("ORANGE", false);
+  static final Block X = new Block("BLANK", true);
 
-  public static final PieceTile[][][] pX = 
+  public static final Block[][][] pX = 
   { {{ X, X, X, X }, 
      { X, X, X, X },
      { X, X, X, X }, 
@@ -33,7 +33,7 @@ class pieceConst{
      { X, X, X, X }, 
      { X, X, X, X }}};
 
-  public static final PieceTile[][][] pI = 
+  public static final Block[][][] pI = 
   { {{ X, X, X, X }, 
      { X, X, X, X },
      { R, R, R, R }, 
@@ -54,7 +54,7 @@ class pieceConst{
      { X, R, X, X }, 
      { X, R, X, X }}};
 
-  public static final PieceTile[][][] pO = 
+  public static final Block[][][] pO = 
   {{{Y, Y}, 
     {Y, Y}},
    
@@ -67,7 +67,7 @@ class pieceConst{
    {{Y, Y}, 
     {Y, Y}}};
 
-  public static final PieceTile[][][] pS = 
+  public static final Block[][][] pS = 
   { {{ X, X, X }, 
      { X, M, M },
      { M, M, X }},
@@ -84,7 +84,7 @@ class pieceConst{
      { M, M, X },
      { X, M, X }}};
 
-  public static final PieceTile[][][] pZ = 
+  public static final Block[][][] pZ = 
   { {{ X, X, X }, 
      { G, G, X },
      { X, G, G }},
@@ -101,7 +101,7 @@ class pieceConst{
      { G, G, X },
      { G, X, X }}};
 
-  public static final PieceTile[][][] pT = 
+  public static final Block[][][] pT = 
   { {{ X, X, X }, 
      { C, C, C },
      { X, C, X }},
@@ -118,7 +118,7 @@ class pieceConst{
      { X, C, C },
      { X, C, X }}};
 
-  public static final PieceTile[][][] pL = 
+  public static final Block[][][] pL = 
   { {{ X, X, X }, 
      { O, O, O },
      { O, X, X }},
@@ -135,7 +135,7 @@ class pieceConst{
      { X, O, X },
      { X, O, O }}};
 
-  public static final PieceTile[][][] pJ = 
+  public static final Block[][][] pJ = 
   { {{ X, X, X }, 
      { B, B, B },
      { X, X, B }},

@@ -1,4 +1,6 @@
 package Tetris.Piece;
+import Tetris.Constants;
+import Tetris.Piece.pieceConst;
 
 public class Piece {
   int x; //position is zero indexed off the top left corner
@@ -47,7 +49,7 @@ public class Piece {
     this.type = input.toUpperCase();
   }
 
-  public PieceTile[][][] getShape() {
+  public Block[][][] getShape() {
     switch (type) {
       case "I":
         return pieceConst.pI;
