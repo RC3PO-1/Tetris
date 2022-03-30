@@ -1,14 +1,50 @@
 package Tetris.Piece;
 
+import java.util.Random;
+
 public class Piece {
-  int x; //position is zero indexed off the top left corner
-  int y;
+  int x = 0; //position is zero indexed off the top left corner
+  int y = 0;
   int rotation  = 0;
   String type; // I,O,S,Z,T,L,J
+  Random rand = new Random();
 
+  /**
+   * create new piece leave blank for random piece
+   * @param type I,O,S,Z,T,L,J
+   */
   public Piece(String type) {
     this.type = type;
   }
+
+  public Piece(){
+    int max = 7;
+    int min = 1;
+    switch (rand.nextInt(max - min + 1) + min) {
+      case 1:
+        type = "I";
+        break;
+      case 2:
+        type = "O";
+        break;
+      case 3:
+        type = "S";
+        break;
+      case 4:
+        type = "Z";
+        break; 
+      case 5:
+        type = "T";
+        break;
+      case 6:
+        type = "L";
+        break;
+      case 7:
+        type = "J";
+        break;
+    }
+  }
+
 
   public void resetPos(){
     this.x = 0;
