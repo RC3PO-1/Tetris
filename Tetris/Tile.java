@@ -22,7 +22,7 @@ public class Tile {
         try {
             I_G = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
             I_C = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
-            I_B = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_B = ImageIO.read(new File("Tetris/Resources/Blue.png"));
             I_R = ImageIO.read(new File("Tetris/Resources/Red.png"));
             I_Y = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
             I_O = ImageIO.read(new File("Tetris/Resources/basicTile.png"));

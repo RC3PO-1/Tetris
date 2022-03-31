@@ -3,14 +3,14 @@ package Tetris.Piece;
 class pieceConst{
   //I,O,S,Z,T,L,J
   
-  static final Block G = new Block("GREEN", false);
-  static final Block C = new Block("CYAN", false);
-  static final Block B = new Block("BLUE", false);
-  static final Block R = new Block("RED", false);
-  static final Block Y = new Block("YELLOW", false);
-  static final Block O = new Block("ORANGE", false);
-  static final Block M = new Block("ORANGE", false);
-  static final Block X = new Block("BLANK", true);
+  static final Block G = new Block("G", false);
+  static final Block C = new Block("C", false);
+  static final Block B = new Block("B", false);
+  static final Block R = new Block("R", false);
+  static final Block Y = new Block("Y", false);
+  static final Block O = new Block("O", false);
+  static final Block M = new Block("M", false);
+  static final Block X = new Block("X", true);
 
   public static final Block[][][] pX = 
   { {{ X, X, X, X }, 

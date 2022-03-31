@@ -6,7 +6,6 @@ import java.awt.*;
 
 class Board {
   private Block boardArray[][] = new Block[Constants.boardCol][Constants.boardRow];
-  private Piece currentPiece;
 
   public Board() {
     clearBoard();
@@ -24,7 +23,8 @@ class Board {
     }
   }
 
-  public void advanceFall() {
+  public boolean goodMove(Piece input) {
+    Piece currentPiece = input;
     Block[][][] tmp = currentPiece.getShape();
     boolean goodMove = true;
 
@@ -41,13 +41,12 @@ class Board {
       }
     }
 
-    if (goodMove) {
-      currentPiece.setY(currentPiece.getY() + 1);
-    }
+    return goodMove;
 
   }
 
-  public void addPieceToBoard() {
+  public boolean addPieceToBoard(Piece input) {
+    Piece currentPiece = input;
     Block[][][] tmp = currentPiece.getShape();
     boolean onBottom = false;
 
@@ -68,10 +67,11 @@ class Board {
       for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
         for (int j = 0; j < tmp[currentPiece.getRotation()][i].length; j++) {
           boardArray[currentPiece.getY() + i][currentPiece.getX() + j] = tmp[currentPiece.getRotation()][i][j];
+
         }
       }
     }
-
+    return onBottom;
   }
 
   public int checkLines() {
@@ -81,18 +81,22 @@ class Board {
   public int removeLines() {
     return 0;
   }
-  
+
   /**
    * Draws board on screen
-   * @param x X offset for board from top left corner
-   * @param y Y offset for board from top left corner
+   * 
+   * @param x  X offset for board from top left corner
+   * @param y  Y offset for board from top left corner
    * @param g2
    */
-  public void draw(int x, int y, Graphics2D g2){
-    for(int i = x; i < Constants.boardCol+x; i++){
-      for(int j = y; j < Constants.boardRow+y; j++){
-        boardArray[(i - x)][(j - y)].draw(boardArray[(i - x)][(j - y)].getColor(), Constants.tileSize*i, Constants.tileSize*j, g2);
+  public void draw(int x, int y, Graphics2D g2) {
+
+    for (int i = x; i < Constants.boardCol + x; i++) {
+      for (int j = y; j < Constants.boardRow + y; j++) {
+        boardArray[(i - x)][(j - y)].draw(boardArray[(i - x)][(j - y)].getColor(), Constants.tileSize * i,
+            Constants.tileSize * j, g2);
       }
     }
+
   }
 }

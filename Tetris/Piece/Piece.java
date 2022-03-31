@@ -2,8 +2,12 @@ package Tetris.Piece;
 
 import java.util.Random;
 
+import Tetris.Constants;
+
+import java.awt.*;
+
 public class Piece {
-  int x = 0; //position is zero indexed off the top left corner
+  int x = 4; //position is zero indexed off the top left corner
   int y = 0;
   int rotation  = 0;
   String type; // I,O,S,Z,T,L,J
@@ -104,6 +108,26 @@ public class Piece {
 
     }
 
+  }
+
+    /**
+   * Draws piece on screen
+   * 
+   * @param x  X offset for board from top left corner
+   * @param y  Y offset for board from top left corner
+   * @param g2
+   */
+  public void draw(int x, int y, Graphics2D g2) {
+    Block[][][] toDraw = this.getShape();
+
+    for (int i = x; i < toDraw[rotation].length + x; i++) {
+      for (int j = y; j < toDraw[rotation][i - x].length + y; j++) {
+        toDraw[rotation][(i - x)][(j - y)].draw(toDraw[rotation][(i - x)][(j - y)].getColor(), Constants.tileSize * i,
+            Constants.tileSize * j, g2);
+      }
+    }
+
+    
   }
 
 }
