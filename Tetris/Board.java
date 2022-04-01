@@ -5,8 +5,8 @@ import Tetris.Piece.Block;
 import java.awt.*;
 
 class Board {
-  private Block boardArray[][] = new Block[Constants.boardCol][Constants.boardRow];
-
+  private Block boardArray[][] = new Block[Constants.boardRow][Constants.boardCol];
+  //boardArray[Row][Col]
   public Board() {
     clearBoard();
   }
@@ -50,15 +50,17 @@ class Board {
     Block[][][] tmp = currentPiece.getShape();
     boolean onBottom = false;
 
-    for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
-      for (int j = 0; j < tmp[currentPiece.getRotation()][i].length; j++) {
-        if (!tmp[currentPiece.getRotation()][i][j].getBlank()) {
-          if (!((currentPiece.getY() + 1 + i >= 0) && (currentPiece.getY() + 1 + i < 24)
-              && (currentPiece.getX() + j >= 0) && (currentPiece.getX() + j < 10))) {
-            if (!(boardArray[currentPiece.getY() + 1 + i][currentPiece.getX() + j].getBlank())) {
+    for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) { //iterate though y
+      for (int j = 0; j < tmp[currentPiece.getRotation()][i].length; j++) { //iterate though x
+        if (!tmp[currentPiece.getRotation()][i][j].getBlank()) { //check if current index in piece array is blank
+          if((i + currentPiece.getY()) == (Constants.boardRow - 1)){//touching bottom of board or touching piece
+            onBottom = true;
+          }else if((i + currentPiece.getY() + 1) < (Constants.boardRow - 1) && (j + currentPiece.getX()) < (Constants.boardCol - 1)){ //check if the next part will be in bounds
+            if(!(boardArray[(i + currentPiece.getY() + 1)][j].getBlank())){ //if the space is not blank
               onBottom = true;
             }
           }
+
         }
       }
     }
@@ -67,10 +69,11 @@ class Board {
       for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
         for (int j = 0; j < tmp[currentPiece.getRotation()][i].length; j++) {
           boardArray[currentPiece.getY() + i][currentPiece.getX() + j] = tmp[currentPiece.getRotation()][i][j];
-
+          System.out.println((currentPiece.getY() + i)+" "+(currentPiece.getX() + j));
         }
       }
     }
+
     return onBottom;
   }
 
@@ -91,10 +94,11 @@ class Board {
    */
   public void draw(int x, int y, Graphics2D g2) {
 
-    for (int i = x; i < Constants.boardCol + x; i++) {
-      for (int j = y; j < Constants.boardRow + y; j++) {
+    for (int i = x; i < Constants.boardRow + x; i++) {
+      for (int j = y; j < Constants.boardCol + y; j++) {
         boardArray[(i - x)][(j - y)].draw(boardArray[(i - x)][(j - y)].getColor(), Constants.tileSize * i,
             Constants.tileSize * j, g2);
+        
       }
     }
 

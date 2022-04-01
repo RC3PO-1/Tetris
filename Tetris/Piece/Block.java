@@ -63,4 +63,9 @@ public class Block extends Tile{
     }
   }
 
+  
+  public String toString(){
+    return this.color;
+  }
+
 }

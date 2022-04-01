@@ -57,4 +57,5 @@ public class Tile {
     public void draw(String color, int x, int y, Graphics2D g2) {
         g2.drawImage(getImage(color), x, y, Constants.tileSize, Constants.tileSize, null);
     }
+
 }
