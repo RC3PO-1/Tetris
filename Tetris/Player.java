@@ -24,12 +24,11 @@ class Player {
     }
 
     public void Periodic() {
-        if(pBoard.goodMove(currentPiece)){
-            currentPiece.setY(currentPiece.getY()+1);
-        }
         if(pBoard.addPieceToBoard(currentPiece)){
             currentPiece = nextPiece;
             nextPiece = new Piece();
+        }else if(pBoard.goodMove(currentPiece)){
+            currentPiece.setY(currentPiece.getY()+1);
         }
     }
 

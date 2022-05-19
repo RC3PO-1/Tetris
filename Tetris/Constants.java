@@ -13,5 +13,5 @@ public class Constants {
     public static final int boardCol = 10;
     public static final int boardRow = 24;
 
-    public static final int FPS = 60;//60;
+    public static final int FPS = 3;//60;
 }
