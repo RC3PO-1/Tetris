@@ -2,8 +2,6 @@ package Tetris;
 import javax.swing.JPanel;
 
 import Tetris.Background.BkgManager;
-import Tetris.Piece.Piece;
-
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
