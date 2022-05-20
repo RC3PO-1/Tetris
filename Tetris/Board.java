@@ -70,7 +70,7 @@ class Board {
     if (onBottom) {
       for (int i = 0; i < tmp[currentPiece.getRotation()][0].length; i++) { // y 
         for (int j = 0; j < tmp[currentPiece.getRotation()].length; j++) { // x
-          this.boardArray[currentPiece.getY() + j -1][currentPiece.getX() + i] = tmp[currentPiece.getRotation()][j][i];
+          this.boardArray[currentPiece.getY() + j][currentPiece.getX() + i] = tmp[currentPiece.getRotation()][j][i];
         }
       }
     }
@@ -92,15 +92,11 @@ class Board {
    * @param y  Y offset for board from top left corner
    * @param g2
    */
-  public void draw(int x, int y, Graphics2D g2) {
-
-    for (int i = x; i < Constants.boardRow + x; i++) {
-      for (int j = y; j < Constants.boardCol + y; j++) {
-        boardArray[(i - x)][(j - y)].draw(boardArray[(i - x)][(j - y)].getColor(), Constants.tileSize * i,
-            Constants.tileSize * j, g2);
-
-      }
+public void draw(int x, int y, Graphics2D g2) {
+    for (int i = 0; i < Constants.boardCol; i++) {
+      for (int j = 0; j < Constants.boardRow; j++) {
+        boardArray[j][i].draw(this.boardArray[j][i].getColor(), Constants.tileSize * (i+x), Constants.tileSize *(j+y), g2);
+      } 
     }
-
   }
 }

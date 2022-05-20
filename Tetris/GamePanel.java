@@ -11,7 +11,6 @@ public class GamePanel extends JPanel implements Runnable {
 
   public GamePanel() {
     this.setPreferredSize(new Dimension(Constants.screenWidth, Constants.screenHeight));
-    // this.setBackground(Color.GRAY);
     this.setDoubleBuffered(true);
   }
 
@@ -50,8 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
     test.draw(0, 0, g2);
-    
-
+  
     g2.dispose();
   }
 

@@ -78,6 +78,7 @@ class Player {
         pBoard.draw(x, y, g2);
         currentPiece.draw(currentPiece.getRotation(), currentPiece.getY(), g2);
 
+
     }
 
     // ========================================================================
