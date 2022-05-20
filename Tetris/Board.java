@@ -52,16 +52,14 @@ class Board {
     Piece currentPiece = input;
     Block[][][] tmp = currentPiece.getShape();
     boolean onBottom = false;
-
     for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) { // iterate though y
       for (int j = 0; j < tmp[currentPiece.getRotation()][i].length; j++) { // iterate though x
         if (!tmp[currentPiece.getRotation()][i][j].getBlank()) { // check if current index in piece array is blank
-          if ((i + currentPiece.getY()) == (Constants.boardRow - 1)) {// touching bottom of board
+          if ((i + currentPiece.getY()) >= (Constants.boardRow - 1)) {// touching bottom of board
             onBottom = true;
-            System.out.println("aaaaaaaaaaaaaaaaa");
           } else if ((i + currentPiece.getY()) < (Constants.boardRow - 1)
               && (j + currentPiece.getX()) < (Constants.boardCol - 1)) { // check if the next part will be in bounds
-            if (!(boardArray[(i + currentPiece.getY() + 1)][j].getBlank())) { // if the space is not blank
+            if (!(this.boardArray[(i + currentPiece.getY() + 1)][j].getBlank())) { // if the space is not blank
               onBottom = true;
             }
           }
@@ -70,15 +68,12 @@ class Board {
     }
 
     if (onBottom) {
-      for (int i = 0; i < tmp[currentPiece.getRotation()].length; i++) {
-        for (int j = 0; j < tmp[currentPiece.getRotation()][i].length; j++) {
-          boardArray[currentPiece.getY() + i][currentPiece.getX() + j] = tmp[currentPiece.getRotation()][i][j];
-          System.out.println((currentPiece.getY() + i) + " " + (currentPiece.getX() + j));
+      for (int i = 0; i < tmp[currentPiece.getRotation()][0].length; i++) { // y 
+        for (int j = 0; j < tmp[currentPiece.getRotation()].length; j++) { // x
+          this.boardArray[currentPiece.getY() + j -1][currentPiece.getX() + i] = tmp[currentPiece.getRotation()][j][i];
         }
       }
     }
-
-    System.out.println("------------------------------");
     return onBottom;
   }
 

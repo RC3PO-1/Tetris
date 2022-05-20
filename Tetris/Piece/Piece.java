@@ -120,11 +120,11 @@ public class Piece {
   public void draw(int x, int y, Graphics2D g2) {
     Block[][][] toDraw = this.getShape();
 
-    for (int i = x; i < toDraw[rotation].length + x; i++) {
-      for (int j = y; j < toDraw[rotation][i - x].length + y; j++) {
-        toDraw[rotation][(i - x)][(j - y)].draw(toDraw[rotation][(i - x)][(j - y)].getColor(), Constants.tileSize * i,
-            Constants.tileSize * j, g2);
+    for (int i = 0; i < toDraw[this.rotation][0].length; i++) { // y 
+      for (int j = 0; j < toDraw[this.rotation].length; j++) { // x
+        toDraw[this.rotation][j][i].draw(toDraw[this.rotation][j][i].getColor(), Constants.tileSize * (i+x), Constants.tileSize * (j+y), g2);
       }
+
     }
 
     
