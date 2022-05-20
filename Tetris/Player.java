@@ -76,7 +76,7 @@ class Player {
      */
     public void draw(int x, int y, Graphics2D g2) {
         pBoard.draw(x, y, g2);
-        currentPiece.draw(currentPiece.getRotation(), currentPiece.getY(), g2);
+        currentPiece.draw(currentPiece.getX(), currentPiece.getY(), g2);
 
 
     }

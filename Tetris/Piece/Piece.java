@@ -7,7 +7,7 @@ import Tetris.Constants;
 import java.awt.*;
 
 public class Piece {
-  int x = 4; //position is zero indexed off the top left corner
+  int x = 3; //position is zero indexed off the top left corner
   int y = 0;
   int rotation  = 0;
   String type; // I,O,S,Z,T,L,J

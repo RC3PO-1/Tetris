@@ -20,13 +20,13 @@ public class Tile {
 
     public Tile() {
         try {
-            I_G = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
-            I_C = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_G = ImageIO.read(new File("Tetris/Resources/Green.png"));
+            I_C = ImageIO.read(new File("Tetris/Resources/Cyan.png"));
             I_B = ImageIO.read(new File("Tetris/Resources/Blue.png"));
             I_R = ImageIO.read(new File("Tetris/Resources/Red.png"));
-            I_Y = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
-            I_O = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
-            I_M = ImageIO.read(new File("Tetris/Resources/basicTile.png"));
+            I_Y = ImageIO.read(new File("Tetris/Resources/Yellow.png"));
+            I_O = ImageIO.read(new File("Tetris/Resources/Orange.png"));
+            I_M = ImageIO.read(new File("Tetris/Resources/Magenta.png"));
             I_X = ImageIO.read(new File("Tetris/Resources/Grey.png"));
         } catch (IOException e) {
             e.printStackTrace();

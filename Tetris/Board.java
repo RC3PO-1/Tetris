@@ -59,7 +59,7 @@ class Board {
             onBottom = true;
           } else if ((i + currentPiece.getY()) < (Constants.boardRow - 1)
               && (j + currentPiece.getX()) < (Constants.boardCol - 1)) { // check if the next part will be in bounds
-            if (!(this.boardArray[(i + currentPiece.getY() + 1)][j].getBlank())) { // if the space is not blank
+            if (!(this.boardArray[(i + currentPiece.getY() + 1)][j+currentPiece.getX()].getBlank())) { // if the space is not blank
               onBottom = true;
             }
           }
@@ -70,7 +70,9 @@ class Board {
     if (onBottom) {
       for (int i = 0; i < tmp[currentPiece.getRotation()][0].length; i++) { // y 
         for (int j = 0; j < tmp[currentPiece.getRotation()].length; j++) { // x
+          if(!tmp[currentPiece.getRotation()][j][i].getBlank()){
           this.boardArray[currentPiece.getY() + j][currentPiece.getX() + i] = tmp[currentPiece.getRotation()][j][i];
+          }
         }
       }
     }
