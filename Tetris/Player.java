@@ -86,12 +86,13 @@ class Player implements KeyListener {
      */
     public void draw(int x, int y, Graphics2D g2) {
         pBoard.draw(x, y, g2);
-        currentPiece.draw(currentPiece.getX(), currentPiece.getY(), g2);
+        currentPiece.draw(currentPiece.getX()+x, currentPiece.getY()+y, g2);
     }
 
     // ========================================================================
     // Controls
     // ========================================================================
+    boolean droplock = false;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -99,6 +100,14 @@ class Player implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_DOWN:
+                if (droplock) {
+                    FPD = GameConst.L1_FPD;
+                    droplock = false;
+                }
+                break;
+        }
     }
 
     @Override
@@ -114,8 +123,22 @@ class Player implements KeyListener {
                     currentPiece.setX(currentPiece.getX() + 1);
                 }
                 break;
+            case KeyEvent.VK_DOWN:
+                if (!droplock) {
+                    FPD = GameConst.L1_FPD / 2;
+                    DFC = FPD;
+                    droplock = true;
+                }
+
+                break;
             case KeyEvent.VK_SPACE:
-                currentPiece.setRotation(currentPiece.getRotation()+1);
+                currentPiece = pBoard.goodSpin(currentPiece);
+                if (currentPiece.getRotation() == 3) {
+                    currentPiece.setRotation(0);
+                } else {
+                    currentPiece.setRotation(currentPiece.getRotation() + 1);
+                }
+
                 break;
 
         }
