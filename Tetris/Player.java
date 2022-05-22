@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import org.w3c.dom.events.Event;
-
 class Player implements KeyListener {
     Piece nextPiece, currentPiece;
     Board pBoard = new Board();
