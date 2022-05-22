@@ -11,8 +11,11 @@ public class GamePanel extends JPanel implements Runnable {
   Player testPlayer = new Player();
 
   public GamePanel() {
-    this.setPreferredSize(new Dimension(Constants.screenWidth, Constants.screenHeight));
+    this.setPreferredSize(new Dimension(GameConst.screenWidth, GameConst.screenHeight));
     this.setDoubleBuffered(true);
+    this.addKeyListener(testPlayer);
+    this.setFocusable(true);
+    this.setFocusTraversalKeysEnabled(false);
   }
 
   public void startGameThread() {
@@ -22,7 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   @Override
   public void run() {
-    double cycleTime = 1000000000 / Constants.FPS;
+    double cycleTime = 1000000000 / GameConst.FPS;
     double nextDraw = System.nanoTime() + cycleTime;
 
     while (gameThread != null) {

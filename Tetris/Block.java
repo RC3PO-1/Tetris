@@ -34,7 +34,6 @@ public class Block {
       I_O = ImageIO.read(new File("Tetris/Resources/Orange.png"));
       I_M = ImageIO.read(new File("Tetris/Resources/Magenta.png"));
       I_X = ImageIO.read(new File("Tetris/Resources/Grey.png"));
-      System.out.println("images loaded sucuessfuly");
     } catch (IOException e) {
       System.out.println("image loading failed");
       e.printStackTrace();
@@ -100,7 +99,7 @@ public class Block {
 
   public void draw(String color, int x, int y, Graphics2D g2) {
     if (!this.blank) {
-      g2.drawImage(this.getImage(color), x, y, Constants.tileSize, Constants.tileSize, null);
+      g2.drawImage(this.getImage(color), x, y, GameConst.tileSize, GameConst.tileSize, null);
 
     }
   }

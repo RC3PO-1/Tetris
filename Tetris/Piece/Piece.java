@@ -3,7 +3,7 @@ package Tetris.Piece;
 import java.util.Random;
 
 import Tetris.Block;
-import Tetris.Constants;
+import Tetris.GameConst;
 
 import java.awt.*;
 /**
@@ -125,7 +125,7 @@ public class Piece {
 
     for (int i = 0; i < toDraw[this.rotation][0].length; i++) { // y 
       for (int j = 0; j < toDraw[this.rotation].length; j++) { // x
-        toDraw[this.rotation][j][i].draw(toDraw[this.rotation][j][i].getColor(), Constants.tileSize * (i+x), Constants.tileSize * (j+y), g2);
+        toDraw[this.rotation][j][i].draw(toDraw[this.rotation][j][i].getColor(), GameConst.tileSize * (i+x), GameConst.tileSize * (j+y), g2);
       }
 
     }

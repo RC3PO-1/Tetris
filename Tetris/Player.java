@@ -9,6 +9,8 @@ class Player implements KeyListener {
     Piece nextPiece, currentPiece;
     Board pBoard = new Board();
     int linesCleared, level, points;
+    int DFC; // Drop fames counter
+    int FPD; // frames per drop
 
     int score;
 
@@ -23,16 +25,21 @@ class Player implements KeyListener {
         linesCleared = 0;
         level = 1;
         points = 0;
+        FPD = GameConst.L1_FPD;
+        DFC = FPD;
     }
 
     public void Periodic() {
-        if (pBoard.addPieceToBoard(currentPiece)) {
-            currentPiece = nextPiece;
-            nextPiece = new Piece();
-        } else if (pBoard.goodMove(currentPiece)) {
-            currentPiece.setY(currentPiece.getY() + 1);
+        if (DFC == FPD) {
+            if (pBoard.addPieceToBoard(currentPiece)) {
+                currentPiece = nextPiece;
+                nextPiece = new Piece();
+            } else if (pBoard.goodFall(currentPiece)) {
+                currentPiece.setY(currentPiece.getY() + 1);
+            }
+            DFC = 0;
         }
-
+        DFC++;
     }
 
     // ========================================================================
@@ -98,13 +105,17 @@ class Player implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
-                currentPiece.setX(currentPiece.getX() - 1);
+                if (pBoard.goodSlide(currentPiece, false)) {
+                    currentPiece.setX(currentPiece.getX() - 1);
+                }
                 break;
             case KeyEvent.VK_RIGHT:
-                currentPiece.setX(currentPiece.getX() + 1);
+                if (pBoard.goodSlide(currentPiece, true)) {
+                    currentPiece.setX(currentPiece.getX() + 1);
+                }
                 break;
             case KeyEvent.VK_SPACE:
-
+                currentPiece.setRotation(currentPiece.getRotation()+1);
                 break;
 
         }

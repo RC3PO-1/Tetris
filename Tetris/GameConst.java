@@ -1,6 +1,6 @@
 package Tetris;
 
-public class Constants {
+public class GameConst {
     public static final int origionalTileSize = 16;
     public static final int scale = 2;
   
@@ -13,7 +13,11 @@ public class Constants {
     public static final int boardCol = 10;
     public static final int boardRow = 24;
 
-    public static final int FPS = 3;//60;
+    public static final int FPS = 60;
 
-    
+    //frames per drop
+    public static final int L1_FPD = 40;
+    public static final int L2_FPD = 60;
+    public static final int L3_FPD = 60;
+    public static final int L4_FPD = 60;
 }
