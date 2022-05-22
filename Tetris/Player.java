@@ -2,8 +2,12 @@ package Tetris;
 
 import Tetris.Piece.Piece;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-class Player {
+import org.w3c.dom.events.Event;
+
+class Player implements KeyListener {
     Piece nextPiece, currentPiece;
     Board pBoard = new Board();
     int linesCleared, level, points;
@@ -24,12 +28,11 @@ class Player {
     }
 
     public void Periodic() {
-        controls();
-        if(pBoard.addPieceToBoard(currentPiece)){
+        if (pBoard.addPieceToBoard(currentPiece)) {
             currentPiece = nextPiece;
             nextPiece = new Piece();
-        }else if(pBoard.goodMove(currentPiece)){
-            currentPiece.setY(currentPiece.getY()+1);
+        } else if (pBoard.goodMove(currentPiece)) {
+            currentPiece.setY(currentPiece.getY() + 1);
         }
 
     }
@@ -81,28 +84,32 @@ class Player {
         currentPiece.draw(currentPiece.getX(), currentPiece.getY(), g2);
     }
 
-    private void controls(){
+    // ========================================================================
+    // Controls
+    // ========================================================================
 
-     
-    }
-    public void shiftLeft() {
-
-    }
-
-    public void shiftRight() {
-
+    @Override
+    public void keyTyped(KeyEvent e) {
     }
 
-    public void spin() {
-
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 
-    public void hardDrop() {
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                currentPiece.setX(currentPiece.getX() - 1);
+                break;
+            case KeyEvent.VK_RIGHT:
+                currentPiece.setX(currentPiece.getX() + 1);
+                break;
+            case KeyEvent.VK_SPACE:
 
-    }
+                break;
 
-    public void softDrop() {
-
+        }
     }
 
 }

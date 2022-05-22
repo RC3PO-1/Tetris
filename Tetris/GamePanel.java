@@ -5,7 +5,10 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
+  
+
   Thread gameThread;
+  Player testPlayer = new Player();
 
   public GamePanel() {
     this.setPreferredSize(new Dimension(Constants.screenWidth, Constants.screenHeight));
@@ -40,13 +43,13 @@ public class GamePanel extends JPanel implements Runnable {
   }
 
   public void update() {
-
+    testPlayer.Periodic();
   }
 
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
-  
+    testPlayer.draw(0, 0, g2);
     g2.dispose();
   }
 
