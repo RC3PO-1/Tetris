@@ -9,6 +9,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   Thread gameThread;
   Player testPlayer = new Player();
+  Background testBkg = new Background(1, 0);
 
   public GamePanel() {
     this.setPreferredSize(new Dimension(GameConst.screenWidth, GameConst.screenHeight));
@@ -16,6 +17,7 @@ public class GamePanel extends JPanel implements Runnable {
     this.addKeyListener(testPlayer);
     this.setFocusable(true);
     this.setFocusTraversalKeysEnabled(false);
+    this.setBackground(Color.LIGHT_GRAY);
   }
 
   public void startGameThread() {
@@ -52,6 +54,7 @@ public class GamePanel extends JPanel implements Runnable {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
+    testBkg.draw(g2);
     testPlayer.draw(1, 0, g2);
     g2.dispose();
   }

@@ -5,7 +5,7 @@ public class GameConst {
     public static final int scale = 2;
   
     public static final int tileSize = origionalTileSize * scale;
-    public static final int maxScreenCol = 16;
+    public static final int maxScreenCol = 18;
     public static final int maxScreenRow = 25;
     public static final int screenWidth = tileSize * maxScreenCol;
     public static final int screenHeight = tileSize * maxScreenRow;
