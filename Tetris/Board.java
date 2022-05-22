@@ -1,7 +1,7 @@
 package Tetris;
 
 import Tetris.Piece.Piece;
-import Tetris.Piece.Block;
+
 import java.awt.*;
 
 class Board {

@@ -2,10 +2,13 @@ package Tetris.Piece;
 
 import java.util.Random;
 
+import Tetris.Block;
 import Tetris.Constants;
 
 import java.awt.*;
-
+/**
+ * this class represents a piece 
+ */
 public class Piece {
   int x = 3; //position is zero indexed off the top left corner
   int y = 0;

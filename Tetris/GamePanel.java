@@ -1,12 +1,10 @@
 package Tetris;
 import javax.swing.JPanel;
 
-import Tetris.Background.BkgManager;
+
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-
-  Player test = new Player();
   Thread gameThread;
 
   public GamePanel() {
@@ -42,13 +40,12 @@ public class GamePanel extends JPanel implements Runnable {
   }
 
   public void update() {
-    test.Periodic();
+
   }
 
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
-    test.draw(0, 0, g2);
   
     g2.dispose();
   }

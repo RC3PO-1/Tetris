@@ -1,5 +1,7 @@
 package Tetris.Piece;
 
+import Tetris.Block;
+
 class pieceConst{
   //I,O,S,Z,T,L,J
   

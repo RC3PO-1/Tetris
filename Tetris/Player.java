@@ -24,12 +24,14 @@ class Player {
     }
 
     public void Periodic() {
+        controls();
         if(pBoard.addPieceToBoard(currentPiece)){
             currentPiece = nextPiece;
             nextPiece = new Piece();
         }else if(pBoard.goodMove(currentPiece)){
             currentPiece.setY(currentPiece.getY()+1);
         }
+
     }
 
     // ========================================================================
@@ -77,13 +79,12 @@ class Player {
     public void draw(int x, int y, Graphics2D g2) {
         pBoard.draw(x, y, g2);
         currentPiece.draw(currentPiece.getX(), currentPiece.getY(), g2);
-
-
     }
 
-    // ========================================================================
-    // Controls
-    // ========================================================================
+    private void controls(){
+
+     
+    }
     public void shiftLeft() {
 
     }
