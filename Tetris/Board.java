@@ -6,6 +6,7 @@ import java.awt.*;
 
 class Board {
   private Block boardArray[][] = new Block[GameConst.boardRow][GameConst.boardCol];
+  boolean atTop = false;
 
   // boardArray[Row][Col]
   public Board() {
@@ -28,6 +29,10 @@ class Board {
         boardArray[i][j] = new Block("X", true);
       }
     }
+  }
+
+  public boolean getAtTop(){
+    return this.atTop;
   }
 
   /**
@@ -191,6 +196,9 @@ class Board {
     }
 
     if (onBottom) {
+      if(currentPiece.getY()<=1){
+        atTop = true;
+      }
       for (int i = 0; i < tmp[currentPiece.getRotation()][0].length; i++) { // y
         for (int j = 0; j < tmp[currentPiece.getRotation()].length; j++) { // x
           if (!tmp[currentPiece.getRotation()][j][i].getBlank()) {
@@ -207,9 +215,9 @@ class Board {
    * 
    * @return
    */
-  int linesRemoved = 0;
+
   public int removeLines() {
-    linesRemoved =0;
+    int linesRemoved = 0;
     boolean rowFull = true;
     for (int i = 0; i < boardArray.length; i++) {
       for (int j = 0; j < boardArray[0].length; j++) {
@@ -229,7 +237,6 @@ class Board {
       }
       rowFull = true;
     }
-
     return linesRemoved;
   }
 

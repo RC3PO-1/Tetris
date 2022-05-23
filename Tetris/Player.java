@@ -8,7 +8,9 @@ import java.awt.event.KeyListener;
 class Player implements KeyListener {
     Piece nextPiece, currentPiece;
     Board pBoard = new Board();
-    int linesCleared, level, points;
+    int linesCleared = 0;
+    int level;
+    int points = 0;
     int DFC; // Drop fames counter
     int FPD; // frames per drop
 
@@ -30,18 +32,21 @@ class Player implements KeyListener {
     }
 
     public void Periodic() {
-        if (DFC == FPD) {
-            if (pBoard.addPieceToBoard(currentPiece)) {
-                currentPiece = nextPiece;
-                nextPiece = new Piece();
-                points += pBoard.removeLines()*pBoard.removeLines();
-                linesCleared = pBoard.removeLines();
-            } else if (pBoard.goodFall(currentPiece)) {
-                currentPiece.setY(currentPiece.getY() + 1);
+        if(!pBoard.getAtTop()){
+            if (DFC == FPD) {
+                if (pBoard.addPieceToBoard(currentPiece)) {
+                    currentPiece = nextPiece;
+                    nextPiece = new Piece();
+                    int lineamos = pBoard.removeLines();
+                    points += (lineamos*lineamos)*100;
+                    linesCleared += lineamos;
+                } else if (pBoard.goodFall(currentPiece)) {
+                    currentPiece.setY(currentPiece.getY() + 1);
+                }
+                DFC = 0;
             }
-            DFC = 0;
+            DFC++;
         }
-        DFC++;
     }
 
     // ========================================================================
@@ -55,10 +60,6 @@ class Player implements KeyListener {
         return this.points;
     }
 
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
     public int getLevel() {
         return this.level;
     }
@@ -69,10 +70,6 @@ class Player implements KeyListener {
 
     public int getlines() {
         return this.linesCleared;
-    }
-
-    public void setlines(int lines) {
-        this.linesCleared = lines;
     }
 
     // ========================================================================
@@ -89,6 +86,9 @@ class Player implements KeyListener {
     public void draw(int x, int y, Graphics2D g2) {
         pBoard.draw(x, y, g2);
         currentPiece.draw(currentPiece.getX()+x, currentPiece.getY()+y, g2);
+        if(pBoard.atTop){
+            g2.drawString("GAME OVER", 3*GameConst.tileSize, 13*GameConst.tileSize);
+        }
     }
 
     // ========================================================================
