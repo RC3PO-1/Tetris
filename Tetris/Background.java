@@ -54,7 +54,10 @@ public class Background {
                 GameConst.tileSize * (j), g2);
             }
         }
+
+        next.draw(13, 7, g2);
         
+
         g2.setFont(fontBold);
         g2.drawString("Next", (13* GameConst.tileSize)+16, (7 * GameConst.tileSize));
         g2.drawString("Points", (12* GameConst.tileSize), (2 * GameConst.tileSize));
@@ -66,23 +69,23 @@ public class Background {
     }
 
     public void setNext(Piece input){
-
+        this.next = input;
     }
 
-    public void setPoints() {
-
+    public void setPoints(int points) {
+        this.points = points;
     }
 
-    public void setLines() {
-
+    public void setLines(int lines) {
+        this.lines = lines;
     }
 
-    public void getPoints() {
-
+    public int getPoints() {
+        return points;
     }
 
-    public void getLines() {
-
+    public int getLines() {
+        return lines;
     }
 
 }

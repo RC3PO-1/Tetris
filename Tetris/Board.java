@@ -42,27 +42,32 @@ class Board {
     Block[][][] tmp = currentPiece.getShape();
     int nextRotation;
 
-    if(currentPiece.getRotation() == 3){
+    if (currentPiece.getRotation() == 3) {
       nextRotation = -3;
-    }else{
+    } else {
       nextRotation = 1;
     }
 
     for (int i = 0; i < tmp[currentPiece.getRotation() + nextRotation].length; i++) { // iterate though y
       for (int j = 0; j < tmp[currentPiece.getRotation() + nextRotation][i].length; j++) { // iterate though x
-        if (!tmp[currentPiece.getRotation() + nextRotation][i][j].getBlank()) { // check if current index in piece array is blank
+        if (!tmp[currentPiece.getRotation() + nextRotation][i][j].getBlank()) { // check if current index in piece array
+                                                                                // is blank
           if ((j + currentPiece.getX()) < (0)) { // left side of board
             currentPiece.setX(currentPiece.getX() + 1);
           } else if ((j + currentPiece.getX()) > (GameConst.boardCol - 1)) {// Right side of board
             currentPiece.setX(currentPiece.getX() - 1);
           } else if ((i + currentPiece.getY()) > (GameConst.boardRow - 1)) {// bottom of board
             currentPiece.setY(currentPiece.getY() - 1);
-          } else if((i + currentPiece.getY()) < (GameConst.boardRow - 1) && (j + currentPiece.getX()) < (GameConst.boardCol - 1) && (i + currentPiece.getY()) > (0) && (j + currentPiece.getX()) > (0)){
-            if (!this.boardArray[i + currentPiece.getY()][j + currentPiece.getX()-1].getBlank()) { // left side Blocks
+          } else if ((i + currentPiece.getY()) < (GameConst.boardRow - 1)
+              && (j + currentPiece.getX()) < (GameConst.boardCol - 1) && (i + currentPiece.getY()) > (0)
+              && (j + currentPiece.getX()) > (0)) {
+            if (!this.boardArray[i + currentPiece.getY()][j + currentPiece.getX() - 1].getBlank()) { // left side Blocks
               currentPiece.setX(currentPiece.getX() + 1);
-            } else if (!this.boardArray[i + currentPiece.getY()][j + currentPiece.getX()+1].getBlank()) {// Right side Blocks
+            } else if (!this.boardArray[i + currentPiece.getY()][j + currentPiece.getX() + 1].getBlank()) {// Right side
+                                                                                                           // Blocks
               currentPiece.setX(currentPiece.getX() - 1);
-            } else if (!this.boardArray[i + currentPiece.getY()-1][j + currentPiece.getX()].getBlank()) {// bottom Blocks
+            } else if (!this.boardArray[i + currentPiece.getY() - 1][j + currentPiece.getX()].getBlank()) {// bottom
+                                                                                                           // Blocks
               currentPiece.setY(currentPiece.getY() - 1);
             }
           }
@@ -144,10 +149,10 @@ class Board {
         if (!tmp[currentPiece.getRotation()][i][j].getBlank()) { // check if current index in piece array is blank
           if ((i + currentPiece.getY()) >= (GameConst.boardRow - 1)) {// touching bottom of board
             goodMove = false;
-          } else if ((i + currentPiece.getY()+1) <= (GameConst.boardRow - 1)
+          } else if ((i + currentPiece.getY() + 1) <= (GameConst.boardRow - 1)
               && (j + currentPiece.getX()) <= (GameConst.boardCol - 1)) { // check if the next part will be in bounds
             if (!(this.boardArray[(i + currentPiece.getY() + 1)][j + currentPiece.getX()].getBlank())) { // if the space
-                                                                                                           // is not blank
+                                                                                                         // is not blank
               goodMove = false;
             }
           }
@@ -197,9 +202,35 @@ class Board {
     return onBottom;
   }
 
-
+  /**
+   * removes lines from board and then returns the number of lines removed
+   * 
+   * @return
+   */
+  int linesRemoved = 0;
   public int removeLines() {
-    return 0;
+    linesRemoved =0;
+    boolean rowFull = true;
+    for (int i = 0; i < boardArray.length; i++) {
+      for (int j = 0; j < boardArray[0].length; j++) {
+        if (boardArray[i][j].getBlank()) {
+          rowFull = false;
+        }
+      }
+
+      if (rowFull) {
+        linesRemoved++;
+        for (int L = i; L > 0; L--) {
+          for (int k = 0; k < boardArray[0].length; k++) {
+            boardArray[L][k] = boardArray[L - 1][k];
+          }
+        }
+
+      }
+      rowFull = true;
+    }
+
+    return linesRemoved;
   }
 
   /**

@@ -10,7 +10,7 @@ import java.awt.*;
  * this class represents a piece 
  */
 public class Piece {
-  int x = 0; //position is zero indexed off the top left corner
+  int x = 3; //position is zero indexed off the top left corner
   int y = 0;
   int rotation  = 0;
   String type; // I,O,S,Z,T,L,J

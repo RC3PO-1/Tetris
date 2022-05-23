@@ -34,6 +34,8 @@ class Player implements KeyListener {
             if (pBoard.addPieceToBoard(currentPiece)) {
                 currentPiece = nextPiece;
                 nextPiece = new Piece();
+                points += pBoard.removeLines()*pBoard.removeLines();
+                linesCleared = pBoard.removeLines();
             } else if (pBoard.goodFall(currentPiece)) {
                 currentPiece.setY(currentPiece.getY() + 1);
             }

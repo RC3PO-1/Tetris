@@ -18,6 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
     this.setFocusable(true);
     this.setFocusTraversalKeysEnabled(false);
     this.setBackground(Color.LIGHT_GRAY);
+
   }
 
   public void startGameThread() {
@@ -49,6 +50,9 @@ public class GamePanel extends JPanel implements Runnable {
 
   public void update() {
     testPlayer.Periodic();
+    testBkg.setLines(testPlayer.getlines());
+    testBkg.setPoints(testPlayer.getPoints());
+    testBkg.setNext(testPlayer.nextPiece);
   }
 
   public void paintComponent(Graphics g) {
