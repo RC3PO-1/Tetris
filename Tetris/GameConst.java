@@ -16,7 +16,7 @@ public class GameConst {
     public static final int FPS = 60;
 
     //frames per drop
-    public static final int L1_FPD = 10;
+    public static final int L1_FPD = 20;
     public static final int L2_FPD = 60;
     public static final int L3_FPD = 60;
     public static final int L4_FPD = 60;

@@ -34,6 +34,9 @@ class Board {
   public boolean getAtTop(){
     return this.atTop;
   }
+  public void setAtTop(boolean input){
+    this.atTop = input;
+  }
 
   /**
    * checks if spin keep s all portions of the piece in bounds if not it is bumped

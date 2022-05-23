@@ -29,16 +29,17 @@ class Player implements KeyListener {
         points = 0;
         FPD = GameConst.L1_FPD;
         DFC = FPD;
+        pBoard.setAtTop(false);
     }
 
     public void Periodic() {
-        if(!pBoard.getAtTop()){
+        if (!pBoard.getAtTop()) {
             if (DFC == FPD) {
                 if (pBoard.addPieceToBoard(currentPiece)) {
                     currentPiece = nextPiece;
                     nextPiece = new Piece();
                     int lineamos = pBoard.removeLines();
-                    points += (lineamos*lineamos)*100;
+                    points += (lineamos * lineamos) * 100;
                     linesCleared += lineamos;
                 } else if (pBoard.goodFall(currentPiece)) {
                     currentPiece.setY(currentPiece.getY() + 1);
@@ -85,9 +86,10 @@ class Player implements KeyListener {
      */
     public void draw(int x, int y, Graphics2D g2) {
         pBoard.draw(x, y, g2);
-        currentPiece.draw(currentPiece.getX()+x, currentPiece.getY()+y, g2);
-        if(pBoard.atTop){
-            g2.drawString("GAME OVER", 3*GameConst.tileSize, 13*GameConst.tileSize);
+        currentPiece.draw(currentPiece.getX() + x, currentPiece.getY() + y, g2);
+        if (pBoard.atTop) {
+            g2.drawString("GAME OVER", 3 * GameConst.tileSize, 13 * GameConst.tileSize);
+            g2.drawString("press escape to reset", 2 * GameConst.tileSize, 14 * GameConst.tileSize);
         }
     }
 
@@ -140,6 +142,10 @@ class Player implements KeyListener {
                 } else {
                     currentPiece.setRotation(currentPiece.getRotation() + 1);
                 }
+
+                break;
+            case KeyEvent.VK_ESCAPE:
+                init();
 
                 break;
 
